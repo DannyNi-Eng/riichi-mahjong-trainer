@@ -257,3 +257,8 @@ tr:last-child td { border-bottom: none; }
   .ukeireRow { flex-direction: column; }
   .ukeireRight { font-size: 15px; }
 }
+
+.tileLabel{
+  display:inline-block;
+  padding: 0 2px;
+}
