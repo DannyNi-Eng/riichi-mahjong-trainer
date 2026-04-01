@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>日麻 摸切练习器</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>日麻 摸切练习器</h1>
+
+      <div class="btnRow">
+        <button id="newHandBtn" class="primary">重新开始</button>
+        <button id="drawBtn" class="primary">摸牌</button>
+        <span id="phaseText" class="sub"></span>
+      </div>
+    </header>
+
+    <main class="stack">
+      <section class="panel handPanel">
+        <div class="panelTitleRow">
+          <h2>当前手牌</h2>
+          <div class="sub" id="hintText">把鼠标放在牌上会抬起，左键点击即可弃牌。</div>
+        </div>
+
+        <pre id="handText" class="handText">(debug)</pre>
+        <div id="handButtons" class="tiles"></div>
+      </section>
+
+      <section class="panel analysisPanel">
+        <h2>结果</h2>
+        <div id="result" class="result">
+          <div class="muted">点击任意一张牌弃掉后，系统会显示向听与最优弃牌（并考虑有效进张）。</div>
+        </div>
+
+        <hr class="panelDivider" />
+
+        <details class="ukeireDetails" open>
+          <summary>有效进张（Ukeire）</summary>
+          <div class="muted">弃牌后显示：有效牌（剩余枚数）｜右侧为总有效枚数</div>
+
+          <div id="ukeireBox" class="ukeireBox">
+            <div class="muted">还没有弃牌结果。</div>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="muted">
+        说明：向听数定义：0=听牌，1=一向听，-1=和牌（本项目用于：若摸牌后已和牌则自动重发）。
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

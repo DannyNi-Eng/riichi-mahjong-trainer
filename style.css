@@ -1,0 +1,259 @@
+:root {
+  --bg: #0b1220;
+  --panel: #121b2e;
+  --text: #e8eefc;
+  --muted: #a6b3d6;
+  --border: rgba(255, 255, 255, 0.12);
+  --good: #4ade80;
+  --bad: #fb7185;
+  --warn: #fbbf24;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.btnRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.primary {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.primary:hover { background: rgba(255, 255, 255, 0.10); }
+.primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ===== Single column stack ===== */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== Panels ===== */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.panelTitleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+/* 调试文本：默认隐藏（需要时注释掉这行即可显示） */
+#handText { display: none; }
+
+.handText {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  overflow: auto;
+  margin: 0 0 10px 0;
+  line-height: 1.7;
+}
+
+/* ===== Hand tiles (image) ===== */
+.tiles {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;                /* ✅ 更紧的牌间距 */
+  align-items: flex-end;
+  overflow-x: auto;
+  padding: 2px 2px 6px;    /* ✅ 上下更紧 */
+}
+
+/* hide scrollbar (optional, keeps scroll functionality) */
+.tiles::-webkit-scrollbar { height: 8px; }
+.tiles::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+}
+.tiles::-webkit-scrollbar-track { background: transparent; }
+
+.tileBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tileImg {
+  height: 88px;          /* ✅ 想更大就改 100/110 */
+  width: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.tileBtn:hover .tileImg {
+  transform: translateY(-6px);   /* ✅ hover 抬起少一点，避免挤 */
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.45));
+}
+
+.tileBtn.selected .tileImg {
+  outline: 3px solid rgba(255,255,255,0.55);
+  transform: translateY(-8px);
+}
+
+.tileBtn.drawn .tileImg {
+  outline: 3px solid rgba(251,191,36,0.75);
+  filter: drop-shadow(0 12px 14px rgba(251,191,36,0.18));
+}
+
+/* ===== Result ===== */
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.muted { color: var(--muted); }
+.good { color: var(--good); font-weight: 700; }
+.bad  { color: var(--bad);  font-weight: 700; }
+.warn { color: var(--warn); font-weight: 700; }
+
+.tableWrap {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th, td {
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  text-align: left;
+  color: var(--muted);
+  background: rgba(255,255,255,0.04);
+}
+tr:last-child td { border-bottom: none; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.badge.best {
+  color: var(--good);
+  border-color: rgba(74,222,128,0.35);
+}
+.badge.notbest {
+  color: var(--bad);
+  border-color: rgba(251,113,133,0.35);
+}
+
+/* ===== Divider + Ukeire (inside analysis panel) ===== */
+.panelDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+.ukeireDetails summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.ukeireBox {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ukeireRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+
+.ukeireLeft {
+  flex: 1;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.ukeireRight {
+  white-space: nowrap;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 12px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .tileImg { height: 78px; }
+  .ukeireRow { flex-direction: column; }
+  .ukeireRight { font-size: 15px; }
+}
