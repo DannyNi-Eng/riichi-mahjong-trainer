@@ -16,6 +16,7 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", Arial;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.6; 
 }
 
 .app {
@@ -41,7 +42,7 @@ h1 {
 .sub {
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .btnRow {
@@ -80,8 +81,8 @@ h1 {
 .panelTitleRow {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 h2 {
@@ -106,10 +107,10 @@ h2 {
 .tiles {
   display: flex;
   flex-wrap: nowrap;
-  gap: 6px;                /* ✅ 更紧的牌间距 */
+  gap: 6px;                
   align-items: flex-end;
   overflow-x: auto;
-  padding: 2px 2px 6px;    /* ✅ 上下更紧 */
+  padding: 2.5px 2.5px 6.5px;    
 }
 
 /* hide scrollbar (optional, keeps scroll functionality) */
@@ -129,14 +130,14 @@ h2 {
 }
 
 .tileImg {
-  height: 88px;          /* ✅ 想更大就改 100/110 */
+  height: 88px;          
   width: auto;
   display: block;
   border-radius: 10px;
 }
 
 .tileBtn:hover .tileImg {
-  transform: translateY(-6px);   /* ✅ hover 抬起少一点，避免挤 */
+  transform: translateY(-6px);   
   filter: drop-shadow(0 10px 12px rgba(0,0,0,0.45));
 }
 
@@ -154,10 +155,12 @@ h2 {
 .result {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
-.muted { color: var(--muted); }
+.muted { color: var(--muted);
+       line-height: 1.65;
+}
 .good { color: var(--good); font-weight: 700; }
 .bad  { color: var(--bad);  font-weight: 700; }
 .warn { color: var(--warn); font-weight: 700; }
@@ -213,14 +216,14 @@ tr:last-child td { border-bottom: none; }
   cursor: pointer;
   font-weight: 800;
   font-size: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 12px; 
 }
 
 .ukeireBox {
-  margin-top: 10px;
+  margin-top: 11px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .ukeireRow {
